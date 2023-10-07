@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { API } from './global'
+
+//Home component
 function Home() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [message, setMessage] = useState("")
+
+  //handlelogin coding
   const handlelogin = async () => {
     const payload = {
       username: email,
       password
     }
-    const res = await fetch(`http://localhost:9000/users/login`, {
+    const res = await fetch(`${API}/users/login`, {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -35,9 +40,12 @@ function Home() {
           <li class="nav-item">
             <Link style={{ color: "black" }} className="nav-link active" aria-current="page" to="/forget-password">Forgetpassword</Link>
           </li>
+          <li class="nav-item">
+            <Link style={{ color: "black" }} className="nav-link active" aria-current="page" to="/">Logout</Link>
+          </li>
         </ul>
       </div>
-      <h1 className='container'>Login</h1>
+      <h2 className='container'>Login</h2>
   
         <label for="email" class="form-label">Email Address</label>
         <input type="email"

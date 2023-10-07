@@ -1,18 +1,22 @@
 import React from 'react'
 import { Link} from 'react-router-dom'
 import { useState } from 'react'
+import { API } from './global'
+
+//signup component
 function Signup() {
-  // const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [message, setMessage] = useState("")
+
+  //handlesignup coding
   const handlesignup = async () => {
     const payload = {
       username: email,
       password
     }
-    const res = await fetch(`http://localhost:9000/users/signup`, {
+    const res = await fetch(`${API}/users/signup`, {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {

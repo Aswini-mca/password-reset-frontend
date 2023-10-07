@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/signup" element={<Signup />}/>
         <Route path="/forget-password" element={<ForgetPassword />}/>
-        <Route path="/password-reset/:randomString" element={<PasswordReset/>}/>
+        <Route path="/reset-password/:randomString" element={<PasswordReset/>}/>
       </Routes>
     </div>
   );
