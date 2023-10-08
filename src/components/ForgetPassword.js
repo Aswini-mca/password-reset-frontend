@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link} from 'react-router-dom'
+import { Link,useNavigate} from 'react-router-dom'
 import { API } from './global'
 
 //forgetpassword component
@@ -8,6 +8,8 @@ function ForgetPassword() {
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [message, setMessage] = useState("")
+  const[randomString,setRandomString] = useState("")
+  const navigate = useNavigate()
  
   //handlesubmit coding
   const handlesubmit = async () => {
@@ -22,12 +24,15 @@ function ForgetPassword() {
       },
     })
     const data = await res.json();
-
+    console.log(data.randomString)
     if (data.error) {
       setError(data.error)
     }
     if (data.message) {
       setMessage(data.message)
+    }
+    if (data.randomString) {
+      setRandomString(data.randomString)
     }
   }
   return (
@@ -48,6 +53,7 @@ function ForgetPassword() {
       <button type="submit" className="btn btn-primary mt-3" onClick={handlesubmit}>Submit</button>
       {error ? <p>{error}</p> : ""}
       {message ? <p>{message}</p> : ""}
+      {message ?  <Link style={{ color: "black" }} className='nav' aria-current="page" to={`/reset-password/${randomString}`}>Reset Password Link</Link> : ""}
     </div>
   )
 }

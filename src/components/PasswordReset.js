@@ -35,7 +35,7 @@ function PasswordReset() {
     <div className='container'>
       <div className='top'>
       <h2 className='container'>Reset Account Password</h2>
-      <Link style={{ color: "black" }} className='nav' aria-current="page" to="/">Home</Link>
+      <Link style={{ color: "black" }} className='nav' aria-current="page" to="/">Login</Link>
       </div>
       <label for="password" class="col-form-label">Password</label>
       <input type="password"
