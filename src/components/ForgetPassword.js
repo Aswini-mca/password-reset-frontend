@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link,useNavigate} from 'react-router-dom'
-import { API } from './global'
+import { API } from '../global'
 
 //forgetpassword component
 function ForgetPassword() {
