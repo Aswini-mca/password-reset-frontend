@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link} from 'react-router-dom'
 import { useState } from 'react'
-import { API } from './global'
+import { API } from '../global'
 
 //signup component
 function Signup() {

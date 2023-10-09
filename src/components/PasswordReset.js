@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useParams,Link } from 'react-router-dom'
-import { API } from './global'
+import { API } from '../global'
 
 //password reset component
 function PasswordReset() {

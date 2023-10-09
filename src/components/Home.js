@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { API } from './global'
+import { API } from '../global'
 
 //Home component
 function Home() {
