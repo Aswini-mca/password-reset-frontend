@@ -28,7 +28,8 @@ function ForgetPassword() {
       setError(data.error)
     }
     if (data.message) {
-      setMessage(data.message)
+      setMessage(data.message);
+      setError('');
     }
     if (data.randomString) {
       setRandomString(data.randomString)
@@ -50,9 +51,9 @@ function ForgetPassword() {
         onChange={(e) => setEmail(e.target.value)}
       />
       <button type="submit" className="btn btn-primary mt-3" onClick={handlesubmit}>Submit</button>
-      {error ? <p>{error}</p> : ""}
-      {message ? <p>{message}</p> : ""}
-      {message ?  <Link style={{ color: "black" }} className='nav' aria-current="page" to={`/reset-password/${randomString}`}>Reset Password Link</Link> : ""}
+      {error ? <p className='text-danger m-4'>{error}❗️</p> : ""}
+      {message ? <p className='text-success m-4 text-center'>✅{message}</p> : ""}
+      {message ?  <Link style={{ color: "black",fontSize:"1em" }} className='nav' aria-current="page" to={`/reset-password/${randomString}`}>Reset Password Link</Link> : ""}
     </div>
   )
 }

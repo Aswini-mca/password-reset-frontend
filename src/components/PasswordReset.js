@@ -28,7 +28,8 @@ function PasswordReset() {
       setError(data.error)
     }
     if (data.message) {
-      setMessage(data.message)
+      setMessage(data.message);
+      setError('');
     }
   }
   return (
@@ -43,6 +44,7 @@ function PasswordReset() {
         id="password"
         placeholder="Enter your new password"
         value={password}
+        title='For strong Password min of 8 chars combo(A-Za-z0-9)1 special char'
         onChange={(e) => setPassword(e.target.value)}
       />
       <label for="confirmPassword" class="col-form-label">Re-enter Password</label>
@@ -51,11 +53,12 @@ function PasswordReset() {
         id="confirmPassword"
         placeholder="Confirm Password"
         value={confirmPassword}
+        title='For strong Password min of 8 chars combo(A-Za-z0-9)1 special char'
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
       <button type="submit" className="btn btn-primary mt-3" onClick={handlesubmit}>Reset Password</button>
-      {error ? <p>{error}</p> : ""}
-      {message ? <p>{message}</p> : ""}
+      {error ? <p className='text-danger m-4'>{error}❗️</p> : ""}
+      {message ? <p className='text-success m-4 text-center'>{message}✅,click login!</p> : ""}
     </div>
   )
 }

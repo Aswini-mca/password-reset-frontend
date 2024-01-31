@@ -28,6 +28,7 @@ function Home() {
     }
     if(data.message){
       setMessage(data.message)
+      setError('')
     }
   }
   return (
@@ -41,7 +42,13 @@ function Home() {
             <Link style={{ color: "black" }} className="nav-link active" aria-current="page" to="/forget-password">Forgetpassword</Link>
           </li>
           <li class="nav-item">
-            <Link style={{ color: "black" }} className="nav-link active" aria-current="page" to="/">Logout</Link>
+            <Link style={{ color: "black" }} className="nav-link active" aria-current="page" to="/" onClick={
+              ()=>{
+                setError('');
+                setMessage('');
+                setEmail('');
+                setPassword('');
+                }}>Logout</Link>
           </li>
         </ul>
       </div>
@@ -63,8 +70,8 @@ function Home() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit" className="btn btn-primary mt-3" onClick={handlelogin}>Login</button>
-        {error ? <p>{error}</p> :""}
-        {message ?<p>{message}</p> : ""}
+        {error ? <p className='text-danger m-4'>{error}❗️</p> :""}
+        {message ? <p className='text-success text-center m-4'>{message} ✅</p>: ""}
     </div>
   )
 }

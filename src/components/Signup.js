@@ -29,7 +29,8 @@ function Signup() {
       setError(data.error)
     }
     if(data.message){
-      setMessage(data.message)
+      setMessage(data.message);
+      setError('');
     }
   }
   return (
@@ -52,11 +53,12 @@ function Signup() {
         id="password" 
         placeholder="Enter your password" 
         value={password}
+        title='For strong Password min of 8 chars combo(A-Za-z0-9)1 special char'
         onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit" className="btn btn-primary mt-3" onClick={handlesignup}>Submit</button>
-      {error ? <p>{error}</p> :""}
-      {message ? <p>{message}</p> : ""}
+      {error ? <p className='text-danger m-4'>{error}❗️</p> :""}
+      <div className='text-center'>{message ? <p children='text-success m-4'>{message} ✅ click Login!</p> : ""}</div>
     </div>
   )
 }
