@@ -58,7 +58,7 @@ function Signup() {
         />
         <button type="submit" className="btn btn-primary mt-3" onClick={handlesignup}>Submit</button>
       {error ? <p className='text-danger m-4'>{error}❗️</p> :""}
-      <div className='text-center'>{message ? <p children='text-success m-4'>{message} ✅ click Login!</p> : ""}</div>
+      <div className='text-center'>{message ? <p className='text-success m-4'>{message} ✅ click Login!</p> : ""}</div>
     </div>
   )
 }
